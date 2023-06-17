@@ -69,40 +69,40 @@ prime = 223
 # print(point)
 
 
-message = b'my message'
+# message = b'my message'
 
-# First SHA256 hash
-first_sha256_hash = hashlib.sha256(message)
-first_digest = first_sha256_hash.digest()
+# # First SHA256 hash
+# first_sha256_hash = hashlib.sha256(message)
+# first_digest = first_sha256_hash.digest()
 
-# Second SHA256 hash on the first hash digest
-second_sha256_hash = hashlib.sha256(first_digest)
-second_digest = second_sha256_hash.digest()
+# # Second SHA256 hash on the first hash digest
+# second_sha256_hash = hashlib.sha256(first_digest)
+# second_digest = second_sha256_hash.digest()
 
-# Convert the second hash digest to an integer
-z = int.from_bytes(second_digest, 'big')
+# # Convert the second hash digest to an integer
+# z = int.from_bytes(second_digest, 'big')
 
-print(hex(z))
+# print(hex(z))
 
 
-my_secret = b'my secret'
+# my_secret = b'my secret'
 
-# First SHA256 hash
-first_sha256 = hashlib.sha256(my_secret)
-first_hash = first_sha256.digest()
+# # First SHA256 hash
+# first_sha256 = hashlib.sha256(my_secret)
+# first_hash = first_sha256.digest()
 
-# Second SHA256 hash on the first hash digest
-second_sha256 = hashlib.sha256(first_hash)
-second_hash = second_sha256.digest()
+# # Second SHA256 hash on the first hash digest
+# second_sha256 = hashlib.sha256(first_hash)
+# second_hash = second_sha256.digest()
 
-# Convert the second hash digest to an integer
-e = int.from_bytes(second_hash, 'big')
-k = 1234567890
-r = (k*G).x.num
-k_inv = pow(k, N-2, N)
-s = (z+r*e) * k_inv % N
-point = e*G
-print(point)
-print(hex(z))
-print(hex(r))
-print(hex(s))
+# # Convert the second hash digest to an integer
+# e = int.from_bytes(second_hash, 'big')
+# k = 1234567890
+# r = (k*G).x.num
+# k_inv = pow(k, N-2, N)
+# s = (z+r*e) * k_inv % N
+# point = e*G
+# print(point)
+# print(hex(z))
+# print(hex(r))
+# print(hex(s))
