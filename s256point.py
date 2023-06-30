@@ -1,6 +1,7 @@
 from s256field import S256Field
-
+from helperch4 import hash160
 from point import Point
+from helperch4 import encode_base58_checksum
 A = 0
 B = 7
 N = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141
@@ -46,6 +47,19 @@ class S256Point(Point):
         else:
             return b'\x04' + self.x.num.to_bytes(32, 'big') + \
                 self.y.num.to_bytes(32, 'big')
+
+    def hash160(self, compressed=True):
+        return hash160(self.sec(compressed))
+
+    def address(self, compressed=True, testnet=False):
+        '''Returns the address string'''
+        h160 = self.hash160(compressed)
+        if testnet:
+            prefix = b'\x6f'
+        else:
+            prefix = b'\x00'
+        return encode_base58_checksum(prefix + h160)
+    # end::source5[]
 
     @classmethod
     def parse(self, sec_bin):

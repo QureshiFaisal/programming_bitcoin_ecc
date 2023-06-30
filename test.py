@@ -6,6 +6,7 @@ import hashlib
 from fieldelement import FieldElement
 from s256point import S256Point, G, N
 from point import Point
+
 prime = 223
 # a = FieldElement(num=0, prime=prime)
 # b = FieldElement(num=7, prime=prime)
@@ -112,7 +113,14 @@ prime = 223
 # priv = PrivateKey(5001)
 # print(priv.point.sec(compressed=True).hex())
 
-r = 0x37206a0610995c58074999cb9767b87af4c4978db68c06e8e6e81d282047a7c6
-s = 0x8ca63759c1157ebeaec0d03cecca119fc9a75bf8e6d0fa65c841c8e2738cdaec
-sig = Signature(r, s)
-print(sig.der().hex())
+# r = 0x37206a0610995c58074999cb9767b87af4c4978db68c06e8e6e81d282047a7c6
+# s = 0x8ca63759c1157ebeaec0d03cecca119fc9a75bf8e6d0fa65c841c8e2738cdaec
+# sig = Signature(r, s)
+# print(sig.der().hex())
+
+
+# priv = PrivateKey(5002)
+# print(priv.point.address(compressed=False, testnet=True))
+
+priv = PrivateKey(5003)
+print(priv.wif(compressed=True, testnet=True))
