@@ -2,7 +2,7 @@ from s256point import G, N
 from signature import Signature
 import hashlib
 import hmac
-from helperch4 import encode_base58_checksum
+from helper import encode_base58_checksum
 
 
 class PrivateKey:

@@ -1,7 +1,7 @@
 from s256field import S256Field
-from helperch4 import hash160
+from helper import hash160
 from point import Point
-from helperch4 import encode_base58_checksum
+from helper import encode_base58_checksum
 A = 0
 B = 7
 N = 0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141

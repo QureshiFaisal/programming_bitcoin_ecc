@@ -122,5 +122,17 @@ prime = 223
 # priv = PrivateKey(5002)
 # print(priv.point.address(compressed=False, testnet=True))
 
-priv = PrivateKey(5003)
-print(priv.wif(compressed=True, testnet=True))
+# priv = PrivateKey(5003)
+# print(priv.wif(compressed=True, testnet=True))
+
+def little_endian_to_int(b):
+    '''little_endian_to_int takes byte sequence as a little-endian number.
+    Returns an integer'''
+    return int.from_bytes(b, 'little')
+
+
+# Example usage
+# hex_string = '01000000'
+# byte_sequence = bytes.fromhex(hex_string)
+# integer_value = little_endian_to_int(byte_sequence)
+# print(integer_value)
