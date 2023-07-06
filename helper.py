@@ -3,6 +3,9 @@ from unittest import TestCase, TestSuite, TextTestRunner
 import hashlib
 
 
+SIGHASH_ALL = 1
+SIGHASH_NONE = 2
+SIGHASH_SINGLE = 3
 BASE58_ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 
 
@@ -69,7 +72,6 @@ def int_to_little_endian(n, length):
     return n.to_bytes(length, 'little')
 
 
-# tag::source1[]
 def read_varint(s):
     '''read_varint reads a variable integer from a stream'''
     i = s.read(1)[0]
@@ -99,7 +101,6 @@ def encode_varint(i):
         return b'\xff' + int_to_little_endian(i, 8)
     else:
         raise ValueError('integer too large: {}'.format(i))
-# end::source1[]
 
 
 class HelperTest(TestCase):
